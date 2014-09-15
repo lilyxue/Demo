@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>旅行日程</title>
+<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+<link rel="stylesheet" href="styles/main.css" />
+<link rel="stylesheet" href="styles/font-awesome.css" />
+<script src="scripts/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+	$('#card-hotel').bind('touchstart click', function (){
+		if (!$(this).hasClass('card-show')) {
+			$('#card-hotel')[0].className = 'card card-show';
+			$('header')[0].className = 'header-show';
+			
+			$('#card-list').css({
+				'height': '100%',
+				'opacity': '1',
+				'-webkit-transform': 'translateY(0)',
+				'transform': 'translateY(0)',
+				'transition': 'all 0.8s ease-out 1s'
+			});
+			$('.hotel-details').css({
+				'transition': 'all 0.8s ease-out 0.8s'
+			});
+		}
+		else {
+			$('#card-hotel').bind('touchstart click', function (){
+				$(this).css({
+					'animation-name': 'refresh'
+				});
+				$('#card-list').css({
+					'animation-name': 'refresh'
+				});
+			});
+		}
+	});
+
+	$('.list-tab').bind('touchstart click', function (){
+		if ($('.list-tab').offset().top <= 53) {
+			$('.wrap').css({
+				// '-webkit-transform': 'translate(0, -410px)',
+				// 'transform': 'translate(0, -410px)',
+				// 'transition': 'all 0.8s ease-out',
+				'-webkit-animation': 'scrollDown 0.8s ease-out forwards',
+				'z-index': '4'
+			});
+		}
+		else {
+			$('.wrap').css({
+				// '-webkit-transform': 'translate(0, -410px)',
+				// 'transform': 'translate(0, -410px)',
+				// 'transition': 'all 0.8s ease-out',
+				'-webkit-animation': 'scrollUp 0.8s ease-out forwards',
+				'z-index': '4'
+			});			
+		}
+		// $('.list-item').css({
+		// 	'height': '460px',
+		// 	'overflow-y': 'auto'
+		// });
+	});
+
+	$('.page-back').bind('touchstart click', function (){
+		if ($('#card-hotel').hasClass('card-show')) {
+			$('.wrap').css({
+				'-webkit-animation': '',
+				'-webkit-transform': 'translateY(0)',
+				'transform': 'translateY(0)'
+			});
+
+			$('.wrap').offset().top = 0 + 'px';
+
+			$('#card-hotel')[0].className = 'card';
+			$('header')[0].className = '';
+
+			$('#card-list').css({
+				'height': '0',
+				'opacity': '0',
+				'-webkit-transform': 'translateY(80px)',
+				'transform': 'translateY(80px)',
+				'transition': 'all 0.8s ease-out 0'
+			});
+			$('.hotel-details').css({
+				'transition': 'all 0.8s ease-out 0'
+			});
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+	<header>
+		<div class="header-date">10月20日，周二</div>
+		<div class="header-back">
+			<div class="header-link">
+				<i class="fa fa-trash"></i>
+				<i class="fa fa-calendar"></i>
+				<i class="fa fa-share-alt"></i>
+			</div>
+			<a href="###" class="page-back">返回</a>
+		</div>
+	</header>
+	<div class="wrap">
+		<div id="card-hotel" class="card">
+			<h1>Marina Bay Sands(滨海湾金沙大酒店)<!-- <i class="fa fa-money"></i> --></h1>
+			<div class="hotel-info">
+				<div class="hotel-addr">
+					<p>Singapore10 Bayfront Avenue</p>
+					<p>最晚到店时间 23:00，10月20日</p>
+				</div>
+				<div class="hotel-details">
+					<dl>
+						<dt class="order-unpay"><i class="fa fa-money"></i> 付款失败</dt>
+						<dd>1间80晚，豪华商务总统睡床房，夏俊、郭美美等3人</dd>
+						<dt>酒店客服</dt>
+						<dd>0034-23256789</dd>
+						<dt>其他信息</dt>
+						<dd>需入住凭证</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="map"></div>
+		</div>
+		<div id="card-list" class="card">
+			<ul class="list-tab">
+				<li class="current">玩</li>
+				<li>住</li>
+				<li>吃</li>
+				<li>购</li>
+			</ul>
+			<ul class="list-item">
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+				<li>
+					<h4>新加坡打车 随叫随到</h4>
+					<p>与Uber合作，外海打车，会中文哦</p>
+					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
+				</li>
+			</ul>
+		</div>
+		<div class="mask"></div>
+	</div>
+</body>
+</html>

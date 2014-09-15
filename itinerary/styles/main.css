@@ -1,0 +1,67 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, th, td, em, form, input,select, textarea, button, header, nav, menu, section, aside, footer { margin: 0; padding: 0; }
+body { background: #eeebec; font-size: 12px; font-family: Helvetica, 'Lato', Calibri, Arial, sans-serif; -webkit-text-size-adjust: none; color: rgba(0,0,0,0.8); }
+html, body { height: 100%; }
+ul, li { list-style: none; }
+a { color: #09f; text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+input, select, textarea, button { -moz-appearance: none; -webkit-appearance: none; border: none; }
+
+header { position: fixed; left: 0; top: 0; width: 100%; height: 44px; line-height: 44px; overflow: hidden; background: #fbfbfb; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 6; }
+.header-date { padding: 0 15px; }
+.header-back { height: 0; padding: 0 15px; opacity: 0; font-size: 18px; transition: all 0.8s linear; z-index: 1; }
+.header-link { float: right; }
+.header-link i { padding: 0 10px; color: #666; }
+.page-back { display: block; height: 44px; color: #666; }
+.header-show .header-date { height: 0; opacity: 0; transition: all 0.8s linear; z-index: -1; }
+.header-show .header-back { height: 100%; opacity: 1; }
+
+.wrap { position: relative; min-height: 568px; margin: 0 auto; padding-top: 50px; }
+.wrap:before { position: absolute; content: ""; width: 2px; height: 568px; left: 16px; top: 0; background: #ccc; z-index: 0; }
+.card { position: relative; margin: 0 auto 6px; width: -webkit-calc(100% - 10px); background: #fff; border: 1px solid #d5d3d3; }
+.card h1 { padding: 12px; font-size: 20px; font-weight: 300; transition: font-size 0.4s linear 0.1s; }
+.card h1 i { float: right; margin: -22px -36px 0 0; color: #f00; }
+
+.hotel-info { height: 52px; transition: height 0.4s ease-out; }
+.hotel-addr { height: 52px; padding: 0 12px; transition: all 0.4s linear; }
+.hotel-addr p:first-child { color: #999; }
+.hotel-addr p:last-child { padding: 12px 0; }
+.hotel-details { height: 0; opacity: 0; -webkit-transform: translate(0, 20px); transform: translate(0, 20px); transition: all 0.8s ease-out; }
+.hotel-details dl { padding-left: 12px; border-top: 1px solid #ddd; }
+.hotel-details dt { padding: 15px 0 5px; border-top: 1px solid #d0d0d0; color: #666; }
+.hotel-details dt:first-child { border: none; }
+.hotel-details .order-unpay { color: #f00; }
+.hotel-details dd { padding: 5px 0 15px; font-size: 14px; color: #23cdfd; }
+
+.map { height: 78px; background: #ddd url(../images/map.png) center center no-repeat; background-size: 310px auto; transition: all 0.4s linear 0.8s; }
+
+.card-show h1 { font-size: 14px; }
+.card-show h1 i { display: none; }
+.card-show .hotel-info { height: 230px; }
+.card-show .hotel-addr { height: 0; opacity: 0; }
+.card-show .hotel-details { height: 100%; opacity: 1; -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+.card-show .map { height: 132px; background-image: url(../images/map-show.png); }
+
+.list-tab { position: -webkit-sticky; position: sticky; top: 52px; height: 38px; background: #fff; border-bottom: 1px solid #e4e4e4; }
+.list-tab li { float: left; width: 25%; height: 33px; line-height: 33px; border-bottom: 5px solid #fff; text-align: center; font-size: 14px; }
+.list-tab .current { border-bottom-color: #23cdfd; color: #23cdfd; }
+.list-item { height: 460px; padding: 5px 0 5px 12px; overflow-y: auto; -webkit-overflow-scrolling : touch; }
+.list-item li { padding: 5px 0; border-bottom: 1px solid #e4e4e4; }
+.list-item li:last-child { border: none; }
+.list-item h4 { line-height: 1.8; font-size: 14px; font-weight: 300; }
+.list-item .item-addr { padding: 10px 0 5px; color: #999; }
+
+#card-list.card { height: 0; opacity: 0; -webkit-transform: translate(0, 80px); transform: translate(0, 80px); transition: all 0.8s ease-out; }
+
+@-webkit-keyframes scrollUp {
+	0%		{ -webkit-transform: translateY(0); }
+	30%		{ -webkit-transform: translateY(-60px); }
+	70%		{ -webkit-transform: translateY(-205px); }
+	100%	{ -webkit-transform: translateY(-410px); }
+}
+
+@-webkit-keyframes scrollDown {
+	0%		{ -webkit-transform: translateY(-410px); }
+	30%		{ -webkit-transform: translateY(-350px); }
+	70%		{ -webkit-transform: translateY(-205px); }
+	100%	{ -webkit-transform: translateY(0); }
+}
