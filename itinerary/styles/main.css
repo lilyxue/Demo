@@ -41,7 +41,7 @@ header { position: fixed; left: 0; top: 0; width: 100%; height: 44px; line-heigh
 .card-show .hotel-details { height: 100%; opacity: 1; -webkit-transform: translate(0, 0); transform: translate(0, 0); }
 .card-show .map { height: 132px; background-image: url(../images/map-show.png); }
 
-.list-tab { position: -webkit-sticky; position: sticky; top: 52px; height: 38px; background: #fff; border-bottom: 1px solid #e4e4e4; }
+.list-tab { position: -webkit-sticky; position: sticky; top: 52px; height: 38px; background: #fff; border-bottom: 1px solid #e4e4e4; z-index: 5; }
 .list-tab li { float: left; width: 25%; height: 33px; line-height: 33px; border-bottom: 5px solid #fff; text-align: center; font-size: 14px; }
 .list-tab .current { border-bottom-color: #23cdfd; color: #23cdfd; }
 .list-item { height: 460px; padding: 5px 0 5px 12px; overflow-y: auto; -webkit-overflow-scrolling : touch; }
@@ -54,14 +54,14 @@ header { position: fixed; left: 0; top: 0; width: 100%; height: 44px; line-heigh
 
 @-webkit-keyframes scrollUp {
 	0%		{ -webkit-transform: translateY(0); }
-	30%		{ -webkit-transform: translateY(-60px); }
-	70%		{ -webkit-transform: translateY(-205px); }
+	30%		{ -webkit-transform: translateY(-40px); }
+	90%		{ -webkit-transform: translateY(-205px); }
 	100%	{ -webkit-transform: translateY(-410px); }
 }
 
 @-webkit-keyframes scrollDown {
 	0%		{ -webkit-transform: translateY(-410px); }
-	30%		{ -webkit-transform: translateY(-350px); }
-	70%		{ -webkit-transform: translateY(-205px); }
+	30%		{ -webkit-transform: translateY(-370px); }
+	90%		{ -webkit-transform: translateY(-205px); }
 	100%	{ -webkit-transform: translateY(0); }
 }
