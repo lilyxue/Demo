@@ -6,62 +6,79 @@ a { color: #09f; text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,
 
 input, select, textarea, button { -moz-appearance: none; -webkit-appearance: none; border: none; }
 
-header { position: fixed; left: 0; top: 0; width: 100%; height: 44px; line-height: 44px; overflow: hidden; background: #fbfbfb; box-shadow: 0 2px 4px rgba(0,0,0,0.3); z-index: 6; }
-.header-date { padding: 0 15px; }
-.header-back { height: 0; padding: 0 15px; opacity: 0; font-size: 18px; transition: all 0.8s linear; z-index: 1; }
-.header-link { float: right; }
+header { position: fixed; left: 0; top: 0; width: 100%; height: 44px; line-height: 44px; background: #fbfbfb; box-shadow: 0 2px 4px rgba(0,0,0,0.3); font-size: 18px; -webkit-transform: translateY(-50px); transform: translateY(-50px); transition: all 0.4s ease-out; z-index: -1; }
+.header-link { float: right; padding-right: 15px; }
 .header-link i { padding: 0 10px; color: #666; }
-.page-back { display: block; height: 44px; color: #666; }
-.header-show .header-date { height: 0; opacity: 0; transition: all 0.8s linear; z-index: -1; }
-.header-show .header-back { height: 100%; opacity: 1; }
+.page-back { display: block; height: 44px; padding: 0 15px; color: #666; }
+.header-show { -webkit-transform: translateY(0); transform: translateY(0); transition: all 0.4s ease-out; z-index: 6; }
 
-.wrap { position: relative; min-height: 568px; margin: 0 auto; padding-top: 50px; }
+.wrap { position: relative; min-height: 568px; margin: 0 auto; }
 .wrap:before { position: absolute; content: ""; width: 2px; height: 568px; left: 16px; top: 0; background: #ccc; z-index: 0; }
-.card { position: relative; margin: 0 auto 6px; width: -webkit-calc(100% - 10px); background: #fff; border: 1px solid #d5d3d3; }
+
+.card-date { position: relative; display: inline-block; margin: 10px 5px; padding: 0 15px; line-height: 36px; background: #fbfbfb; border-radius: 36px; box-shadow: 0 3px 5px rgba(0,0,0,0.3); color: #666; }
+
+.card { position: relative; margin: 0 auto 6px; width: -webkit-calc(100% - 10px); background: #fff; border: 1px solid #d5d3d3; overflow: hidden; }
 .card h1 { padding: 12px; font-size: 20px; font-weight: 300; transition: font-size 0.4s linear 0.1s; }
 .card h1 i { float: right; margin: -22px -36px 0 0; color: #f00; }
+
+/* flight */
+/*#card-flight { height: 258px; background: url(../images/card-flt.png) center center no-repeat; background-size: 310px auto; }
+.flt-depart, .flt-arrive, .fa.fa-plane { position: absolute; top: 60px; font-size: 20px; color: #fff; }
+.flt-depart { left: 10px; }
+.flt-arrive { right: 10px; }
+.fa-plane { left: 50%; -webkit-transform: translateX(-50%) rotate(45deg); transform: translateX(-50%) rotate(45deg); }
+.fa.fa-plane { font-size: 36px; }
+
+#card-flight.card-show { background: #fff; }
+.card-show .flt-depart, .card-show .flt-arrive, .card-show .fa.fa-plane { top: 10px; font-size: 16px; color: #333; }
+.card-show .flt-depart { left: 10px; }
+.card-show .flt-arrive { left: 70px; }
+.card-show .fa.fa-plane { left: 60px; font-size: 14px; }
+
+.flt-details { height: 0; background: url(../images/card-flt-details.png) center center no-repeat; background-size: 310px auto; -webkit-transform: translate(0, 20px); transform: translate(0, 20px); transition: all 0.4s linear 0.8s; }
+.card-show .flt-details { height: 213px; margin-top: 40px; border-top: 1px solid #ddd; }*/
+
+/* hotel */
 
 .hotel-info { height: 52px; transition: height 0.4s ease-out; }
 .hotel-addr { height: 52px; padding: 0 12px; transition: all 0.4s linear; }
 .hotel-addr p:first-child { color: #999; }
 .hotel-addr p:last-child { padding: 12px 0; }
 .hotel-details { height: 0; opacity: 0; -webkit-transform: translate(0, 20px); transform: translate(0, 20px); transition: all 0.8s ease-out; }
-.hotel-details dl { padding-left: 12px; border-top: 1px solid #ddd; }
-.hotel-details dt { padding: 15px 0 5px; border-top: 1px solid #d0d0d0; color: #666; }
+.hotel-details dl { padding-left: 12px; border-top: 1px solid #d5d3d3; }
+.hotel-details dt { padding: 10px 0 5px; border-top: 1px solid #d0d0d0; color: #666; }
 .hotel-details dt:first-child { border: none; }
 .hotel-details .order-unpay { color: #f00; }
-.hotel-details dd { padding: 5px 0 15px; font-size: 14px; color: #23cdfd; }
+.hotel-details dd { padding: 5px 0 10px; font-size: 16px; color: #23cdfd; }
 
-.map { height: 78px; background: #ddd url(../images/map.png) center center no-repeat; background-size: 310px auto; transition: all 0.4s linear 0.8s; }
+.map { background: #ddd url(../images/map.png) center center no-repeat; background-size: 310px auto; transition: all 0.4s linear 0.2s; }
+.map-hotel { height: 78px; }
 
-.card-show h1 { font-size: 14px; }
+.card-show h1 { font-size: 16px; }
 .card-show h1 i { display: none; }
-.card-show .hotel-info { height: 230px; }
+.card-show .hotel-info { height: 216px; }
 .card-show .hotel-addr { height: 0; opacity: 0; }
 .card-show .hotel-details { height: 100%; opacity: 1; -webkit-transform: translate(0, 0); transform: translate(0, 0); }
-.card-show .map { height: 132px; background-image: url(../images/map-show.png); }
+.card-show .map-hotel { height: 120px; background-image: url(../images/map-show.png); transition: all 0.4s linear 0.2s; }
 
-.list-tab { position: -webkit-sticky; position: sticky; top: 52px; height: 38px; background: #fff; border-bottom: 1px solid #e4e4e4; z-index: 5; }
-.list-tab li { float: left; width: 25%; height: 33px; line-height: 33px; border-bottom: 5px solid #fff; text-align: center; font-size: 14px; }
-.list-tab .current { border-bottom-color: #23cdfd; color: #23cdfd; }
-.list-item { height: 460px; padding: 5px 0 5px 12px; overflow-y: auto; -webkit-overflow-scrolling : touch; }
-.list-item li { padding: 5px 0; border-bottom: 1px solid #e4e4e4; }
-.list-item li:last-child { border: none; }
-.list-item h4 { line-height: 1.8; font-size: 14px; font-weight: 300; }
-.list-item .item-addr { padding: 10px 0 5px; color: #999; }
-
-#card-list.card { height: 0; opacity: 0; -webkit-transform: translate(0, 80px); transform: translate(0, 80px); transition: all 0.8s ease-out; }
+#card-discover { height: 0; overflow: hidden; margin: 0 auto; opacity: 0; -webkit-transform: translateY(120px); transform: translateY(120px); }
+#card-discover.card-show { height: 494px; margin: 0 auto 6px; opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+#card-discover h3 { height: 38px; line-height: 38px; background: #fff; border-bottom: 1px solid #e4e4e4; font-size: 14px; font-weight: 300; z-index: 5; text-align: center; }
+.list-discover { height: 454px; overflow-y: auto; -webkit-overflow-scrolling : touch; }
+.list-first { padding: 5px 0 5px 12px; border-bottom: 1px solid #d5d3d3; }
+.list-item { height: 2970px; background: url(../images/card-discover.png) center top repeat-y; background-size: 310px auto; }
 
 @-webkit-keyframes scrollUp {
 	0%		{ -webkit-transform: translateY(0); }
 	30%		{ -webkit-transform: translateY(-40px); }
-	90%		{ -webkit-transform: translateY(-205px); }
-	100%	{ -webkit-transform: translateY(-410px); }
+	80%		{ -webkit-transform: translateY(-205px); }
+	90%		{ -webkit-transform: translateY(-380px); }
+	100%	{ -webkit-transform: translateY(-390px); }
 }
 
 @-webkit-keyframes scrollDown {
-	0%		{ -webkit-transform: translateY(-410px); }
-	30%		{ -webkit-transform: translateY(-370px); }
-	90%		{ -webkit-transform: translateY(-205px); }
+	0%		{ -webkit-transform: translateY(-390px); }
+	30%		{ -webkit-transform: translateY(-380px); }
+	80%		{ -webkit-transform: translateY(-205px); }
 	100%	{ -webkit-transform: translateY(0); }
 }

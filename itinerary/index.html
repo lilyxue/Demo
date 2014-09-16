@@ -9,62 +9,74 @@
 <script src="scripts/jquery.min.js"></script>
 <script>
 $(document).ready(function () {
-	$('#card-hotel').bind('touchstart click', function (){
+	$('#card-hotel').bind('touchstart', function (){
+		$('.card-date').css({
+			'display': 'none'
+		});
+		$('#card-flight').css({
+			'height': '0',
+			'opacity': '0',
+			'margin': '0 auto',
+			// '-webkit-transform': 'translateY(80px)',
+			// 'transform': 'translateY(80px)',
+			'transition': 'all 0.8s ease-out 0'
+		});
 		if (!$(this).hasClass('card-show')) {
 			$('#card-hotel')[0].className = 'card card-show';
 			$('header')[0].className = 'header-show';
-			
-			$('#card-list').css({
-				'height': '100%',
-				'opacity': '1',
-				'-webkit-transform': 'translateY(0)',
-				'transform': 'translateY(0)',
-				'transition': 'all 0.8s ease-out 1s'
+
+			$('.wrap').css({
+				'padding-top': '50px',
+			});
+			$('#card-discover')[0].className = 'card card-show';
+			$('#card-discover').css({
+				'transition': 'all 0.8s ease-out 1.5s'
 			});
 			$('.hotel-details').css({
 				'transition': 'all 0.8s ease-out 0.8s'
 			});
 		}
 		else {
-			$('#card-hotel').bind('touchstart click', function (){
-				$(this).css({
-					'animation-name': 'refresh'
-				});
-				$('#card-list').css({
-					'animation-name': 'refresh'
-				});
+			$('#card-discover')[0].className = 'card'
+			$('#card-discover').css({
+				'transition': 'all 0.8s ease-out 0'
 			});
 		}
 	});
 
-	$('.list-tab').bind('touchstart click', function (){
-		if ($('.list-tab').offset().top <= 53) {
+	$('#card-discover h3').bind('touchstart', function (){
+		if ($('#card-discover h3').offset().top <= 53) {
 			$('.wrap').css({
-				// '-webkit-transform': 'translate(0, -410px)',
-				// 'transform': 'translate(0, -410px)',
-				// 'transition': 'all 0.8s ease-out',
 				'-webkit-animation': 'scrollDown 0.6s ease-in forwards',
 				'z-index': '4'
 			});
+			//$('.wrap').scrollTop(-410);
 		}
 		else {
 			$('.wrap').css({
-				// '-webkit-transform': 'translate(0, -410px)',
-				// 'transform': 'translate(0, -410px)',
-				// 'transition': 'all 0.8s ease-out',
 				'-webkit-animation': 'scrollUp 0.6s ease-in forwards',
 				'z-index': '4'
-			});			
+			});		
+			//$('.wrap').scrollTop(410);
 		}
-		// $('.list-item').css({
-		// 	'height': '460px',
-		// 	'overflow-y': 'auto'
-		// });
 	});
 
-	$('.page-back').bind('touchstart click', function (){
+	$('.page-back').bind('touchstart', function (){
+		$('.card-date').css({
+			'display': ''
+		});
+		$('#card-flight').css({
+			'height': '100%',
+			'margin': '0 auto 6px',
+			'opacity': '1',
+			// '-webkit-transform': 'translateY(0)',
+			// 'transform': 'translateY(0)',
+			'transition': 'all 0.8s ease-out 1.5s'
+		});
+
 		if ($('#card-hotel').hasClass('card-show')) {
 			$('.wrap').css({
+				'padding-top': '0',
 				'-webkit-animation': '',
 				'-webkit-transform': 'translateY(0)',
 				'transform': 'translateY(0)'
@@ -75,14 +87,12 @@ $(document).ready(function () {
 			$('#card-hotel')[0].className = 'card';
 			$('header')[0].className = '';
 
-			$('#card-list').css({
-				'height': '0',
-				'opacity': '0',
-				'-webkit-transform': 'translateY(80px)',
-				'transform': 'translateY(80px)',
+			$('.hotel-details').css({
 				'transition': 'all 0.8s ease-out 0'
 			});
-			$('.hotel-details').css({
+
+			$('#card-discover')[0].className = 'card';
+			$('#card-discover').css({
 				'transition': 'all 0.8s ease-out 0'
 			});
 		}
@@ -93,17 +103,15 @@ $(document).ready(function () {
 </head>
 <body>
 	<header>
-		<div class="header-date">10月20日，周二</div>
-		<div class="header-back">
-			<div class="header-link">
-				<i class="fa fa-trash"></i>
-				<i class="fa fa-calendar"></i>
-				<i class="fa fa-share-alt"></i>
-			</div>
-			<a href="###" class="page-back">返回</a>
+		<div class="header-link">
+			<i class="fa fa-trash"></i>
+			<i class="fa fa-calendar"></i>
+			<i class="fa fa-share-alt"></i>
 		</div>
+		<a href="###" class="page-back">返回</a>
 	</header>
 	<div class="wrap">
+		<div class="card-date">1月3日，周三</div>
 		<div id="card-hotel" class="card">
 			<h1>Marina Bay Sands(滨海湾金沙大酒店)<!-- <i class="fa fa-money"></i> --></h1>
 			<div class="hotel-info">
@@ -122,107 +130,22 @@ $(document).ready(function () {
 					</dl>
 				</div>
 			</div>
-			<div class="map"></div>
+			<div class="map map-hotel"></div>
 		</div>
-		<div id="card-list" class="card">
-			<ul class="list-tab">
-				<li class="current">玩</li>
-				<li>住</li>
-				<li>吃</li>
-				<li>购</li>
-			</ul>
-			<ul class="list-item">
-				<li>
+		<div id="card-discover" class="card">
+			<h3>发现</h3>
+			<div class="list-discover">
+				<!-- <div class="list-first">
 					<h4>新加坡打车 随叫随到</h4>
 					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-				<li>
-					<h4>新加坡打车 随叫随到</h4>
-					<p>与Uber合作，外海打车，会中文哦</p>
-					<p class="item-addr">东北省铁岭市赫池沟1234弄99号</p>
-				</li>
-			</ul>
+				</div> -->
+				<div class="list-item"></div>
+			</div>
+		</div>
+
+		<div class="card-date">1月2日，周二</div>
+		<div id="card-flight" class="card">
+			<div style="height: 258px; background: url(images/card-flt.png) center center no-repeat; background-size: 310px auto;"></div>
 		</div>
 	</div>
 </body>
