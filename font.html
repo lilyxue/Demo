@@ -8,12 +8,6 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Helvetica Neue', 'Roboto', 'Helvetica', 'Hiragino Sans GB', sans-serif; font-weight: 100; -webkit-text-size-adjust: none; }
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 100;
-  src: url(fonts/Roboto-Thin.woff) format('woff');
-}
 .wrap { padding: 20px; line-height: 1; }
 p { padding: 10px 0; }
 .time { padding: 10px 0; }
@@ -22,6 +16,13 @@ p { padding: 10px 0; }
 .time span:last-child:after { content: ""; padding: 0; }
 .time i { font-size: 18px; font-style: normal; }
 p sup { font-size: 36px; }
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(Roboto-Thin.woff) format('woff');
+}
 </style>
 </head>
 <body>
