@@ -10,10 +10,10 @@
 body { font-family: 'Helvetica Neue', 'Roboto', 'Helvetica', 'Hiragino Sans GB', sans-serif; font-weight: 100; -webkit-text-size-adjust: none; }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'FontAwesome';
   font-style: normal;
   font-weight: 100;
-  src: url(http://fonts.gstatic.com/s/roboto/v14/vzIUHo9z-oJ4WgkpPOtg13YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+  src: url(fontawesome.woff) format('woff');
 }
 .wrap { padding: 20px; line-height: 1; }
 p { padding: 10px 0; }
@@ -24,11 +24,23 @@ p { padding: 10px 0; }
 .time i { font-size: 18px; font-style: normal; }
 p sup { font-size: 36px; }
 
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-star:before {
+  content: "\f005";
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 	<p style="font-size: 72px;"><span style="font-size: 30px; vertical-align: middle;">中文 Test 12345678</p>
+	<p><i class="fa fa-star"></i></p>
 	<p style="font-size: 30px;">离开始购买还有</p>
 	<div class="time">
 		<span>18<br /><i>HOURS</i></span>
